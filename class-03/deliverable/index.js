@@ -1,19 +1,17 @@
 const express = require("express");
 const Container = require("./models/Container");
 
-const app = express();
 const PORT = 8080;
-const FILE_NAME = "products.txt";
+const app = express();
+const products = new Container("products.txt");
 
 app.get("/products", async (req, res) => {
-  const products = new Container(FILE_NAME);
   const allProducts = await products.getAll();
 
   res.send({ data: allProducts });
 });
 
 app.get("/random-product", async (req, res) => {
-  const products = new Container(FILE_NAME);
   const allProducts = await products.getAll();
 
   const randomProduct =

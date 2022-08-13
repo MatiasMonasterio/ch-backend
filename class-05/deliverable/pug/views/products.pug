@@ -1,0 +1,21 @@
+extends layouts/main.pug
+include /partials/product-item.pug
+
+block main
+  div(class="d-flex justify-content-between align-items-end mb-4")
+    h1(class="text-primary") View of products
+    a(href="/") Add new product
+
+  #productsExist
+  if productsExist
+    div(class="alert alert-warning" role="alert") No products found
+  else
+    table(class="table")
+      thead
+        tr
+          th(scope="col") Name
+          th(scope="col") Price 
+          th(scope="col") Image 
+      tbody
+        each product in products
+          +product-item(product)

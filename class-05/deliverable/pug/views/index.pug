@@ -1,0 +1,25 @@
+extends layouts/main.pug
+block main
+
+  div(class="d-flex flex-column justify-content-center h-100")
+    h1(class="text-primary") New product
+
+    form(class="d-flex flex-column gap-3 mb-4" method="POST" action="/products")
+      div(class="form-group")
+        label(for="name") Name
+        input(type="text" class="form-control" id="name" name="name" placeholder="Calculator")
+
+      div(class="form-group")
+        label(for="price") Price
+        input(type="text" class="form-control" id="price" name="price" placeholder="125.50")
+      
+      div(class="form-group")
+        label(for="image") Image url 
+        input(type="text" class="form-control" id="image" name="image" placeholder="https://static.toiimg.com/photo/msid-75503669,width-96,height-65.cms")
+
+      button(type="submit" class="btn btn-success me-auto px-4") Send
+
+    div(class="row")
+      div(class="col d-flex justify-content-end")
+        a(href="/products") Show all products
+

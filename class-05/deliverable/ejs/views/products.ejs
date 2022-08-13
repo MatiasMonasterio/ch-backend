@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-between align-items-end mb-4">
+  <h1 class="text-primary">View of products</h1>
+  <a href="/">Add new product</a>
+</div>
+
+<% if (productsExist) { %>
+  <div class="alert alert-warning" role="alert">
+    No products found
+  </div>
+
+<%} else {%>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Image</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% products.forEach((product) => { %>
+        <%- include('./partials/product-item', {product: product}); %>
+      <% }); %>
+    </tbody>
+    <!-- <tbody>
+      {{#each products}}
+        {{> product-item product=this}}
+      {{/each}}
+    </tbody> -->
+  </table>
+<% } %>

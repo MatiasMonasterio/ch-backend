@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  db:
+    image: mariadb:10.9.2
+    restart: always
+    environment:
+      - MYSQL_DATABASE=websockets
+      - MARIADB_ROOT_PASSWORD=root
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    volumes:
+      - mariadb:/var/lib/mysql
+      
+volumes:
+  mariadb:

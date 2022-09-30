@@ -2,7 +2,9 @@ const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
 const { engine } = require("express-handlebars");
+
 const { mariadb, sqlite } = require("./databases");
+const productMock = require("./mocks/productMock");
 
 const app = express();
 const server = http.createServer(app);
@@ -29,6 +31,14 @@ app.get("/", async (_req, res) => {
     console.error(error);
     res.send("Error 500");
   }
+});
+
+app.get("/products-test", (req, res) => {
+  res.render("products-test");
+});
+
+app.get("/api/products-test", (req, res) => {
+  res.json({ data: productMock.getMany(5) });
 });
 
 io.on("connection", (socket) => {

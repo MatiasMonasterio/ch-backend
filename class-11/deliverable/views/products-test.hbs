@@ -1,0 +1,29 @@
+<div class="col-md-7">
+      <h1 class="text-primary">View of products</h1>
+
+      {{#if productsExist}}
+        <div class="alert alert-warning" role="alert">
+          No products found
+        </div>
+
+      {{else}}
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Image</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {{#each products}}
+              {{> product-item product=this}}
+            {{/each}}
+          </tbody>
+        </table>
+      {{/if}}
+</div>
+
+
+<script src="/products-test.js"></script>

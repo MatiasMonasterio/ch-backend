@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-4">
+  {{!-- <div class="col-md-4">
       <h1 class="text-primary">New product</h1>
 
       <form
@@ -72,45 +72,95 @@
           </tbody>
         </table>
       {{/if}}
-  </div>
+  </div> --}}
 
   <hr>
 
   <div class="col-12 mt-4">
     <h1 class="text-primary">Message center</h1>
-
-    <div class="form-group">
-      <label for="email">User email</label>
-      <input
-        type="text"
-        class="form-control"
-        id="email"
-        name="email"
-        placeholder="example@test.com"
-      />
-    </div>
+    <h2 class="text-primary" id="compression">(Compression {{compression}}%)</h2>
 
     <hr>
 
-    <div class="mb-4">
+    <form class="d-flex flex-column gap-2 col-md-6" id="message-form">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="email"
+            placeholder="mmonasterio@coderhouse.com"
+            value="mmonasterio@coderhouse.com"
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            placeholder="Matias"
+            value="Matias"
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="lastname"
+            placeholder="Monasterio"
+            value="Monasterio"
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            type="number"
+            class="form-control"
+            name="age"
+            placeholder="26"
+            value="26"
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="alias"
+            placeholder="mmonasterio"
+            value="mmonasterio"
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="avatar"
+            placeholder="some-avatar-url"
+            value="https://cdn-icons-png.flaticon.com/512/147/147142.png"
+          />
+        </div>
+
+        <div class="form-group">
+          <textarea
+            type="textarea"
+            class="form-control"
+            name="message"
+            placeholder="Write message..."
+          ></textarea>
+        </div>
+
+        <button class="btn btn-success">Submit</button>
+    </form>
+
+    <div class="mt-4">
       <div id="message-container">
-        {{#each messages}}
+        {{!-- {{#each messages}}
           {{> message msg=this}}
-        {{/each}}
+        {{/each}} --}}
       </div>
     </div>
-
-    <form class="d-flex gap-2" id="message-form">
-      <div class="form-group">
-        <input
-          type="text"
-          class="form-control"
-          name="message"
-          placeholder="Write a message"
-        />
-      </div>
-
-      <button class="btn btn-success">Submit</button>
-    </form>
   </div>
 </div>

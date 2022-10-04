@@ -1,0 +1,25 @@
+{
+  "name": "deliverable",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "2.0.20"
+  },
+  "dependencies": {
+    "@faker-js/faker": "7.5.0",
+    "connect-mongo": "4.6.0",
+    "dotenv": "16.0.3",
+    "express": "4.18.1",
+    "express-handlebars": "6.0.6",
+    "express-session": "1.17.3",
+    "mongoose": "6.6.3",
+    "normalizr": "3.6.2",
+    "socket.io": "4.5.2"
+  }
+}

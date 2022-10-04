@@ -1,0 +1,188 @@
+<div class="row">
+  <div
+    class="col-12 d-flex justify-content-between align-items-center alert alert-success"
+  >
+    <h2>Welcome {{username}}</h2>
+    <a href="/logout" class="btn btn-warning">Logout</a>
+  </div>
+  
+  <div class="col-md-4">
+      <h1 class="text-primary">New product</h1>
+
+      <form
+        class="d-flex flex-column gap-2 mb-4"
+        id="product-form"
+      >
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Name"
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="price"
+            name="price"
+            placeholder="Price"
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="image"
+            name="image"
+            placeholder="Image Url"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-success  px-4">
+          Send
+        </button>
+      </form>
+  </div>
+
+    <div class="col d-none d-md-block"></div>
+
+  <div class="col-md-7">
+      <h1 class="text-primary">View of products</h1>
+
+      {{#if productsExist}}
+        <div class="alert alert-warning" role="alert">
+          No products found
+        </div>
+
+      {{else}}
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Image</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {{#each products}}
+            <tr>
+              <td>{{this.title}}</td>
+              <td>{{this.price}}</td>
+              <td>
+                <img
+                  width="50"
+                  height="50"
+                  class="img-thumbnail"
+                  src={{this.thumbnail}}
+                  alt={{this.title}}
+                />
+              </td>
+            </tr>
+              {{!-- {{> product-item product=this}} --}}
+            {{/each}}
+          </tbody>
+        </table>
+      {{/if}}
+  </div>
+
+  <hr />
+
+  <div class="col-12 mt-4">
+    <h1 class="text-primary">Message center</h1>
+    <h2 class="text-primary" id="compression">
+      (Compression 0%)
+    </h2>
+
+    <hr />
+
+    <div class="row">
+      <form class="d-flex flex-column gap-2 col-md-6" id="message-form">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="email"
+            placeholder="mmonasterio@coderhouse.com"
+            value="mmonasterio@coderhouse.com"
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            placeholder="Matias"
+            value="Matias"
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="lastname"
+            placeholder="Monasterio"
+            value="Monasterio"
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            type="number"
+            class="form-control"
+            name="age"
+            placeholder="26"
+            value="26"
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="alias"
+            placeholder="mmonasterio"
+            value="mmonasterio"
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="avatar"
+            placeholder="some-avatar-url"
+            value="https://cdn-icons-png.flaticon.com/512/147/147142.png"
+          />
+        </div>
+
+        <div class="form-group">
+          <textarea
+            type="textarea"
+            class="form-control"
+            name="message"
+            placeholder="Write message..."
+          ></textarea>
+        </div>
+
+        <button class="btn btn-success">Submit</button>
+      </form>
+
+      <div class="col-md-6 mt-4 mt-md-0">
+        <div id="message-container">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="/messages.js"></script>
+<script src="/products.js"></script>

@@ -11,7 +11,7 @@ class UserDAO {
   }
 
   async create(user) {
-    user.password = encrypt.hash(user.password);
+    user.password = await encrypt.hash(user.password);
     return userModel.create(user);
   }
 }

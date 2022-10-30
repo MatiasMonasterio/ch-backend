@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: app
+      dockerfile: Dockerfile
+      args:
+        PORT: 8080
+    ports:
+      - "8080:8080"
+    restart: always
+    environment:
+      - ARG_MODE=FORK
+      - ARG_PORT=8080
+      - SESSION_SECRET=${SESSION_SECRET}
+      - SESSION_TIME_MINUTES=${SESSION_TIME_MINUTES}
+      - MONGO_URL=${MONGO_URL}

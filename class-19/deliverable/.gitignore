@@ -1,0 +1,7 @@
+node_modules
+
+*.sql
+*.sqlite
+*.env
+
+app-logs/
